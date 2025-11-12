@@ -38,8 +38,7 @@ python ./src/eval/super/eval_super.py -d <path/to/SuPerDataset> -w <path/to/weig
 ```
 
 ### Unpublished Results on Non-surgical Datasets
-LiteTracker also performs competitively on natural scenes benchmarks.
-
+LiteTracker also performs competitively on natural scenes benchmarks. Latency values are computed on a single RTX3090, as 95th percentile of the measurements, tracking 1024 points.
 <table>
   <tr>
     <th rowspan="2">Method</th>
