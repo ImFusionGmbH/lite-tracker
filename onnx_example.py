@@ -4,10 +4,10 @@ Please note that there might be discrepancies between the PyTorch and ONNX wrapp
 
 Usage:
     # Export only:
-    python onnx_example.py --checkpoint path/to/weights.pth --output_dir ./onnx_export
+    uv run onnx_example.py --checkpoint path/to/weights.pth --output_dir ./onnx_export
 
     # Export + verify against PyTorch:
-    python onnx_example.py --checkpoint path/to/weights.pth --output_dir ./onnx_export --verify
+    uv run onnx_example.py --checkpoint path/to/weights.pth --output_dir ./onnx_export --verify
 """
 
 import os

@@ -8,9 +8,9 @@
 We propose LiteTracker, a low-latency method for tissue tracking in endoscopic video streams. LiteTracker builds on a state-of-the-art long-term point tracking method, and introduces a set of **training-free runtime optimizations**. These optimizations enable online, frame-by-frame tracking by leveraging **a temporal memory buffer** for efficient feature reuse and utilizing prior motion for **accurate track initialization**. LiteTracker demonstrates significant runtime improvements being around **7x faster than its predecessor and 2x than the state-of-the-art**. Beyond its primary focus on efficiency, LiteTracker delivers high-accuracy tracking and occlusion prediction, performing competitively on both the STIR and SuPer datasets.
 
 ## Getting Started
-1. Install the required packages using pip (tested only with Ubuntu 20.04 and 22.04 with Python 3.10):
+1. Install the required packages using via [uv](https://docs.astral.sh/uv/getting-started/installation/):
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 2. Download the pre-trained weights or train your own CoTracker3 Online model via the official [repository](https://github.com/facebookresearch/co-tracker). In our experiments, we used the [scaled weights](https://huggingface.co/facebook/cotracker3/resolve/main/scaled_online.pth) from the official repository.
 
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ### Demo and runtime analysis
 The demo script runs LiteTracker on a video in a stream-line fashion, produces a video with tracking results, and prints the runtime statistics.
 ```bash
-python demo.py -w <path/to/weights.pth> -v assets/stir-5-seq-01.mp4 -s 20 -q 0
+uv run demo.py -w <path/to/weights.pth> -v assets/stir-5-seq-01.mp4 -s 20 -q 0
 ```
 
 ### STIR Challenge 2024
@@ -34,7 +34,7 @@ bash ./launch_eval_stir.sh <path/to/STIRDataset> <path/to/weights.pth>
 
 ### SuPer
 ```bash
-python ./src/eval/super/eval_super.py -d <path/to/SuPerDataset> -w <path/to/weights.pth>
+uv run ./src/eval/super/eval_super.py -d <path/to/SuPerDataset> -w <path/to/weights.pth>
 ```
 
 ### Unpublished Results on Non-surgical Datasets
