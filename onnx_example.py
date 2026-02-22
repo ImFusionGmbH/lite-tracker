@@ -1,24 +1,13 @@
 """
-export_onnx.py
-
-Export LiteTracker sub-components to ONNX format and provide an ONNX-based tracker wrapper.
-
-LiteTracker is a stateful online tracker that cannot be exported as a single ONNX graph due to
-data-dependent control flow and mutable internal buffers. Instead, we export three pure neural
-network sub-components:
-  1. fnet (BasicEncoder) - Feature extraction CNN
-  2. corr_mlp (Mlp) - Correlation embedding MLP
-  3. updateformer (EfficientUpdateFormer) - Transformer-based track updater
-
-The OnnxLiteTracker class wraps these ONNX models and replicates the full stateful tracking
-pipeline using numpy for orchestration.
+Example for exporting LiteTracker sub-components to ONNX format and using with a wrapper.
+Please note that there might be discrepancies between the PyTorch and ONNX wrapper. Please verify carefully for your use case.
 
 Usage:
     # Export only:
-    python export_onnx.py --checkpoint path/to/weights.pth --output_dir ./onnx_export
+    python onnx_example.py --checkpoint path/to/weights.pth --output_dir ./onnx_export
 
     # Export + verify against PyTorch:
-    python export_onnx.py --checkpoint path/to/weights.pth --output_dir ./onnx_export --verify
+    python onnx_example.py --checkpoint path/to/weights.pth --output_dir ./onnx_export --verify
 """
 
 import os
